@@ -9,18 +9,18 @@ export default defineConfig({
   optimizeDeps: {
     entries: ["src/main.tsx", "src/tempobook/**/*"],
   },
+  server: {
+    port: process.env.PORT as unknown as number,
+    allowedHosts: true,
+  },
   plugins: [
     react(),
-    tempo(),
+    tempo()
   ],
   resolve: {
     preserveSymlinks: true,
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
-  },
-  server: {
-    // @ts-ignore
-    allowedHosts: true,
   }
 });

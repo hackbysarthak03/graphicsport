@@ -17,6 +17,14 @@ module.exports = {
       },
     },
     extend: {
+      fontFamily:{
+        yanone: ["Yanone Kaffeesatz", "sans-serif"],
+        roboto: ["Roboto Condensed", "sans-serif"],
+      },
+letterSpacing: {
+        'extra-wide': '0.2em',
+        'super-tight': '-0.075em',
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
