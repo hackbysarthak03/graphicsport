@@ -116,21 +116,7 @@ const MediaItem = ({
               <p className="text-muted-foreground">{category}</p>
             </div>
           </div>
-        ) : (
-          <div className="w-full h-full flex flex-col">
-            <div className="flex-1 min-h-0 flex items-center justify-center">
-              <img
-                src={mediaUrl}
-                alt={title}
-                className="max-w-full max-h-full rounded-md"
-              />
-            </div>
-            <div className="mt-4 flex-shrink-0">
-              <h2 className="text-xl font-semibold">{title}</h2>
-              <p className="text-muted-foreground">{category}</p>
-            </div>
-          </div>
-        )}
+        ) : <></>}
       </DialogContent>
     </Dialog>
   );

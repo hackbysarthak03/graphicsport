@@ -46,24 +46,28 @@ const HomePage = () => {
           </p>
           <div className="flex space-x-4">
             <Button
+            onClick={() => window.open('https://www.instagram.com/the.unframed.guy')}
               size="icon"
               className="bg-zinc-700 rounded-full hover:bg-zinc-800"
             >
               <Instagram className="h-5 w-5" />
             </Button>
             <Button
+            onClick={() => window.open('https://www.linkedin.com/in/hellosarthak')}
               size="icon"
               className="bg-zinc-700 rounded-full hover:bg-zinc-800"
             >
               <Linkedin className="h-5 w-5" />
             </Button>
-            <Button
+            <Button 
+              onClick={() => window.open('https://www.github.com/hackbysarthak03')}
               size="icon"
               className="bg-zinc-700 rounded-full hover:bg-zinc-800"
             >
               <Github className="h-5 w-5" />
             </Button>
-            <Button
+            <Button 
+              onClick={() => window.open('mailto:vsarthak62@gmail.com')}
               size="icon"
               className="bg-zinc-700 rounded-full hover:bg-zinc-800"
             >
