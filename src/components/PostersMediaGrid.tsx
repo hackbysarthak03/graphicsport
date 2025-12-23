@@ -87,6 +87,46 @@ const MediaGrid: React.FC<MediaGridProps> = ({ className = "" }) => {
         "https://res.cloudinary.com/doy34nvkz/image/upload/v1733431823/Dhanteras_Poster_aahfjk.png",
       category: "",
     },
+    {
+      id: "cinematic-9",
+      title: "Independence Day",
+      type: "image",
+      thumbnailUrl:
+        "https://res.cloudinary.com/doy34nvkz/image/upload/v1766524506/IndependenceDay-123_dg86s1.jpg",
+      mediaUrl:
+        "https://res.cloudinary.com/doy34nvkz/image/upload/v1766524506/IndependenceDay-123_dg86s1.jpg",
+      category: "",
+    },
+    {
+      id: "cinematic-10",
+      title: "Abroad Promotional",
+      type: "image",
+      thumbnailUrl:
+        "https://res.cloudinary.com/doy34nvkz/image/upload/v1766524506/GNH_-_03_nu3td3.jpg",
+      mediaUrl:
+        "https://res.cloudinary.com/doy34nvkz/image/upload/v1766524506/GNH_-_03_nu3td3.jpg",
+      category: "",
+    },
+    {
+      id: "cinematic-12",
+      title: "Abroad Promotion",
+      type: "image",
+      thumbnailUrl:
+        "https://res.cloudinary.com/doy34nvkz/image/upload/v1766524506/GNH-18_1_dcjvoq.jpg",
+      mediaUrl:
+        "https://res.cloudinary.com/doy34nvkz/image/upload/v1766524506/GNH-18_1_dcjvoq.jpg",
+      category: "",
+    },
+    {
+      id: "cinematic-11",
+      title: "Independence Day",
+      type: "image",
+      thumbnailUrl:
+        "https://res.cloudinary.com/doy34nvkz/image/upload/v1766524506/Independence-cAI_gyjtfz.gif",
+      mediaUrl:
+        "https://res.cloudinary.com/doy34nvkz/image/upload/v1766524506/Independence-cAI_gyjtfz.gif",
+      category: "",
+    },
   ];
 
   const reels = [

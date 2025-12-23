@@ -1,9 +1,11 @@
 import { motion, useScroll, useSpring } from "framer-motion";
-import { Github, Instagram, Linkedin, Mail, ExternalLink, TrendingUp } from "lucide-react";
+import { Github, Instagram, Linkedin, Mail, ExternalLink, TrendingUp, ZoomIn, ZoomOut, X } from "lucide-react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { Separator } from "./ui/separator";
+import { Dialog, DialogContent, DialogTrigger } from "./ui/dialog";
+import { useState } from "react";
 // Import the components directly from their files
 // Assuming they are exported as default exports
 
@@ -19,6 +21,53 @@ const HomePage = () => {
     damping: 30,
     restDelta: 0.001
   });
+
+  const [zoomLevel, setZoomLevel] = useState(1);
+
+  const ImageZoomDialog = ({ src, alt, title }: { src: string; alt: string; title: string }) => {
+    const [localZoom, setLocalZoom] = useState(1);
+    
+    return (
+      <Dialog>
+        <DialogTrigger asChild>
+          <img 
+            src={src}
+            alt={alt}
+            className="w-full aspect-[1/1.4142] object-cover cursor-pointer hover:opacity-90 transition-opacity"
+          />
+        </DialogTrigger>
+        <DialogContent className="max-w-[95vw] max-h-[95vh] p-0 bg-black/90">
+          <div className="relative w-full h-full flex items-center justify-center">
+            <div className="absolute top-4 right-4 z-10 flex gap-2">
+              <Button
+                size="sm"
+                variant="secondary"
+                onClick={() => setLocalZoom(prev => Math.min(prev + 0.5, 3))}
+              >
+                <ZoomIn className="h-4 w-4" />
+              </Button>
+              <Button
+                size="sm"
+                variant="secondary"
+                onClick={() => setLocalZoom(prev => Math.max(prev - 0.5, 0.5))}
+              >
+                <ZoomOut className="h-4 w-4" />
+              </Button>
+            </div>
+            <div className="w-full h-full overflow-auto scrollbar-thin scrollbar-thumb-zinc-600 scrollbar-track-transparent">
+              <img 
+                src={src}
+                alt={alt}
+                className="min-w-full min-h-full object-contain transition-transform duration-200 cursor-grab active:cursor-grabbing"
+                style={{ transform: `scale(${localZoom})` }}
+                draggable={false}
+              />
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
+    );
+  };
 
   return (
     <div className="min-h-screen bg-zinc-900 text-white font-yanone">
@@ -40,7 +89,7 @@ const HomePage = () => {
             Hey, I'm Sarthak!
           </h1>
           <p className="text-2xl text-zinc-300 mb-6">
-            Creative <span className="text-4xl font-bold">Video Editor</span> and <span className="text-4xl font-bold">Graphic Designer</span> with over 1+ years of
+            Creative <span className="text-4xl font-bold">Video Editor, Graphic Designer, UI Designer</span> with over 1+ years of
             experience crafting compelling visual stories and stunning designs
             that captivate audiences.
           </p>
@@ -227,6 +276,102 @@ const HomePage = () => {
             </motion.div>
             <div className="w-full my-16">
               <PostersMediaGrid />
+            </div>
+            <motion.div
+              className="text-4xl mb-8 relative inline-block"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <span className="relative">
+                UI Samples
+                <motion.div
+                  className="absolute -bottom-2 left-0 h-1 bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 rounded-full"
+                  initial={{ width: 0 }}
+                  whileInView={{ width: "150%" }}
+                  transition={{
+                    duration: 1.2,
+                    delay: 0.8,
+                    ease: "easeOut"
+                  }}
+                  viewport={{ once: true }}
+                />
+              </span>
+            </motion.div>
+            <div className="w-full my-16">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {/* UI Sample Item */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  viewport={{ once: true }}
+                  className="bg-zinc-800 rounded-lg overflow-hidden hover:transform hover:scale-105 transition-all duration-300"
+                >
+                  <ImageZoomDialog 
+                    src="https://res.cloudinary.com/doy34nvkz/image/upload/v1766523523/34ad4218-a853-470a-98ee-cf79affebdae.png"
+                    alt="Mediseva Mobile App UI"
+                    title="Mediseva Mobile App UI"
+                  />
+                  <div className="p-3">
+                    <h3 className="font-medium text-sm truncate mb-2">Mediseva Mobile App UI</h3>
+                    <a 
+                      href="https://www.figma.com/proto/X1JHtTILDdzPUQ4fE5f27j/MediSeva---Dashboards?node-id=23-302&t=qYHskbVEyBu8802n-1" 
+                      className="inline-flex items-center text-purple-400 hover:text-purple-300 transition-colors text-xs"
+                    >
+                      <ExternalLink className="h-3 w-3 mr-1" />
+                      View on Figma
+                    </a>
+                  </div>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  viewport={{ once: true }}
+                  className="bg-zinc-800 rounded-lg overflow-hidden hover:transform hover:scale-105 transition-all duration-300"
+                >
+                  <ImageZoomDialog 
+                    src="https://res.cloudinary.com/doy34nvkz/image/upload/v1766523500/mw_email_web_design_qn5ota.jpg"
+                    alt="MW HomePage Template"
+                    title="MW HomePage Template"
+                  />
+                  <div className="p-3">
+                    <h3 className="font-medium text-sm truncate mb-2">MW HomePage Temp</h3>
+                    <a 
+                      href="https://www.figma.com/proto/X1JHtTILDdzPUQ4fE5f223/MW-Temp?node-id=23-302&t=qYHskbVsdkjbhdjks-1" 
+                      className="inline-flex items-center text-purple-400 hover:text-purple-300 transition-colors text-xs"
+                    >
+                      <ExternalLink className="h-3 w-3 mr-1" />
+                      View on Figma
+                    </a>
+                  </div>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  viewport={{ once: true }}
+                  className="bg-zinc-800 rounded-lg overflow-hidden hover:transform hover:scale-105 transition-all duration-300"
+                >
+                  <ImageZoomDialog 
+                    src="https://res.cloudinary.com/doy34nvkz/image/upload/v1766523500/mw_email_15_ind_y7g8zm.jpg"
+                    alt="MW Email Template"
+                    title="MW Email Template"
+                  />
+                  <div className="p-3">
+                    <h3 className="font-medium text-sm truncate mb-2">MW Email Template</h3>
+                    <a 
+                      href="https://www.figma.com/proto/X1JHtTILDdzPUQ4fE5f223/MW-Temp?node-id=23-302&t=jsdjhsafhbJHjhkjh-3" 
+                      className="inline-flex items-center text-purple-400 hover:text-purple-300 transition-colors text-xs"
+                    >
+                      <ExternalLink className="h-3 w-3 mr-1" />
+                      View on Figma
+                    </a>
+                  </div>
+                </motion.div>
+              </div>
             </div>
           </motion.div>
         </div>

@@ -22,21 +22,30 @@ const TestimonialSection: React.FC<TestimonialSectionProps> = ({
   testimonials = [
     {
       id: 1,
-      name: "Shivam Goyal",
-      role: "Founder",
-      company: "Tutedude",
+      name: "Pradip Chauhan",
+      role: "Founder & MD",
+      company: "Codeology AI",
       quote:
         "The Advertisments produced exceeded our expectations. The attention to detail and audience engagement ability transformed our brand completely.",
       avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Alex",
     },
     {
       id: 2,
-      name: "Abhishek Gangwar",
-      role: "Co-Founder",
-      company: "Tutedude",
+      name: "Nootan Raghav",
+      role: "Sr. Graphic Designer",
+      company: "Codeology AI",
       quote:
         "The Graphics were really appealing and must be appreciated that took our business to reach new heights by engaging our clients to our latest offers",
       avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah",
+    },
+    {
+      id: 3,
+      name: "Abhishek Kapoor",
+      role: "IT Head",
+      company: "Nexus Properties",
+      quote:
+        "Amazing work! The website designed was not only visually stunning but also user-friendly, resulting in increased traffic and customer engagement.",
+      avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Alex",
     },
   ],
 }) => {
